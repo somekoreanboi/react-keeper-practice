@@ -2,19 +2,20 @@ import React from "react";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 import { useState } from "react";
+import { NoteType } from "./types/note.type";
 
 
 function HomePage() {
 
-    const [notes, setNotes] = useState([]);
+    const [notes, setNotes] = useState<Array<NoteType>>([]);
 
-    function addNote(newNote) {
+    function addNote(newNote: NoteType) {
       setNotes((prevNotes) => {
         return [...prevNotes, newNote];
       });
     }
     
-    function deleteNote(id) {
+    function deleteNote(id: number)  {
       setNotes((prevNotes) => {
         return prevNotes.filter((noteItem, index) => {
           return index !== id;

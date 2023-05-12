@@ -1,6 +1,6 @@
 import React from "react";
 
-function Note(props) {
+function Note(props: NotePropType) {
 
 function handleClick() {
   props.onDelete(props.id);
@@ -16,3 +16,10 @@ function handleClick() {
 }
 
 export default Note;
+
+interface NotePropType {
+  id: number;
+  title: string;
+  content: string;
+  onDelete: (id: number) => void;
+}
